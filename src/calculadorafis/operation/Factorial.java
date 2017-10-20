@@ -23,14 +23,14 @@ public class Factorial {
             else
             if(x%1>0)
             {
-                return Double.NaN;
+                //return Double.NaN;
                 /*Si quitamos los comentarios de las lineas de abajo y ponemos en comentarios la linea de arriba, el programa sera capas de sacar el factorial
                   de un numero fraccionario positivo.
                   Se decidio ponerse en comentario porque la funcion la_gamma utiliza la libreria math.*/  
                 
-//                fact = f.la_gamma(x) * x;
-//                return fact;
-//                System.out.println("factorial extendido: "+fact);
+                fact = f.la_gamma(x) * x;
+                return fact;
+                //System.out.println("factorial extendido: "+fact);
             }
             else   
             {

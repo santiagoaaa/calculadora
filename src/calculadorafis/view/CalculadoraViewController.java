@@ -45,6 +45,15 @@ public class CalculadoraViewController implements Initializable {
         // TODO
        btnLimpiar.setOnAction(event -> edtNumeros.clear());
        
+       btnPunto.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               String cadena;
+               cadena = edtNumeros.getText()+".";
+               edtNumeros.setText(cadena);
+           }
+       });
+       
        btnSuma.setOnAction(new EventHandler<ActionEvent>() {
            @Override
            public void handle(ActionEvent event) {
@@ -68,9 +77,9 @@ public class CalculadoraViewController implements Initializable {
            public void handle(ActionEvent event) {
                double x;
                x = Double.parseDouble(edtNumeros.getText());
+               System.out.println("este valor tiene x= "+x*2);
                fact = new Factorial();
                edtNumeros.setText(""+fact.factorial(x));
-               
            }
        });
        
