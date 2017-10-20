@@ -11,8 +11,8 @@ package calculadorafis.operation;
  * @author Santiago
  */
 public class senos {
-    public static final double E = 2.7182818284590452354;
-    public static final double PI = 3.14159265358979323846;
+    public  double E = 2.7182818284590452354;
+    public  double PI = 3.14159265358979323846;
 
     public double sen(double grado) throws Exception {
         int i, signo = 1;

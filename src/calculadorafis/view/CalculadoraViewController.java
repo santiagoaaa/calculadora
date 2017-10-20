@@ -6,9 +6,12 @@
 package calculadorafis.view;
 
 import calculadorafis.NumberTextField;
+import calculadorafis.operation.Coseno;
 import calculadorafis.operation.Factorial;
 import calculadorafis.operation.Modulo;
 import calculadorafis.operation.baseDiez;
+import calculadorafis.operation.cuadrado;
+import calculadorafis.operation.cubo;
 import calculadorafis.operation.lnBaseDiez;
 import calculadorafis.operation.lnBaseN;
 import calculadorafis.operation.senos;
@@ -39,6 +42,9 @@ public class CalculadoraViewController implements Initializable {
     tan tang;
     tanh tangh;
     senos sin;
+    Coseno cos;
+    cuadrado cuad;
+    cubo cub;
     Double  primerTermino;
     //NumberTextField edt;
     @FXML
@@ -218,7 +224,7 @@ public class CalculadoraViewController implements Initializable {
                    double termino;
                    termino = Double.parseDouble( numbers [0]);
                    edtNumeros.setText(""+ tangh.tanh(termino));                   
-               }//if tan
+               }//if tanh
               
               if (bandera.equals("sen")){
                   sin = new senos();
@@ -226,7 +232,30 @@ public class CalculadoraViewController implements Initializable {
                    double termino;
                    termino = Double.parseDouble( numbers [0]);
                    edtNumeros.setText(""+ sin.sen(termino));    
-              }
+              }//if sen
+                 if (bandera.equals("senh")){
+                  sin = new senos();
+                  String [] numbers = cadena.split(bandera); 
+                   double termino;
+                   termino = Double.parseDouble( numbers [0]);
+                   edtNumeros.setText(""+ sin.senh(termino));    
+              }//if senh
+                      if (bandera.equals("cos")){
+                  cos = new Coseno();
+                  String [] numbers = cadena.split(bandera); 
+                   double termino;
+                   termino = Double.parseDouble( numbers [0]);
+                   edtNumeros.setText(""+ cos.Cos(termino));    
+              }//if senh 
+                      
+                 if (bandera.equals("cosh")){
+                  cos = new Coseno();
+                  String [] numbers = cadena.split(bandera); 
+                   double termino;
+                   termino = Double.parseDouble( numbers [0]);
+                   edtNumeros.setText(""+ cos.Cosh(termino));    
+              }//if senh 
+                 
            }
        });
        
@@ -308,6 +337,40 @@ public class CalculadoraViewController implements Initializable {
            @Override
            public void handle(ActionEvent event) {
                cadenas("senh");
+           }
+       });
+              btnCos.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               cadenas("cos");
+           }
+       });
+              btnCosh.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               cadenas("cosh");
+           }
+       });
+              
+           btnXcuadrado.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               double num;
+               cuad = new cuadrado();
+               cadena = null;
+               num =Double.parseDouble( edtNumeros.getText());
+               edtNumeros.setText(""+cuad.cuadrado(num));
+           }
+       });
+              
+          btnXcubico.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               cub = new cubo();
+               double num;
+               cadena=null;
+               num =Double.parseDouble( edtNumeros.getText());
+               edtNumeros.setText(""+cub.cubo(num));
            }
        });
 
